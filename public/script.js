@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Base URL do backend (atualize para o endereço do backend hospedado)
+    const API_URL = "https://seu-backend-hospedado.com";
+
     // Seção de login e cadastro
     const loginForm = document.getElementById('loginForm');
     const registerForm = document.getElementById('registerForm');
@@ -23,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('http://localhost:5000/login', {
+                const response = await fetch(`${API_URL}/login`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -52,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const password = document.getElementById('password').value;
 
             try {
-                const response = await fetch('http://localhost:5000/register', {
+                const response = await fetch(`${API_URL}/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ name, email, password })
@@ -96,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/save-imc', {
+            const response = await fetch(`${API_URL}/save-imc`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, imc, classification: nomeCalculo })

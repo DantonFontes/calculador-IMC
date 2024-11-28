@@ -5,7 +5,7 @@ const db = require('./database'); // Importa o arquivo database.js
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 10000;
 const saltRounds = 10; // Número de saltos para hashing
 
 app.use(cors());
